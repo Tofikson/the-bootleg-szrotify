@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "the-meme-generator", "the-meme-generator\the-meme-generator.csproj", "{4CCCC5FF-8A21-4141-A7B9-19CD3E8471AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CCCC5FF-8A21-4141-A7B9-19CD3E8471AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CCCC5FF-8A21-4141-A7B9-19CD3E8471AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CCCC5FF-8A21-4141-A7B9-19CD3E8471AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CCCC5FF-8A21-4141-A7B9-19CD3E8471AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D4BF640-CA74-429C-A5BA-4F19B8DE84AF}
+	EndGlobalSection
+EndGlobal
