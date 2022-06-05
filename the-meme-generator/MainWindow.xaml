@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:the_meme_generator"
         mc:Ignorable="d"
-        Title="The Greate Meme Generator" Height="450" Width="800">
+        Title="The Great Meme Generator" Height="450" Width="800">
     
 </NavigationWindow>
