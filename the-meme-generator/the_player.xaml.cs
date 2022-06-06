@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace the_meme_generator
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logika interakcji dla klasy the_player.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class the_player : Window
     {
-        public MainWindow()
+        public the_player()
         {
             InitializeComponent();
         }
