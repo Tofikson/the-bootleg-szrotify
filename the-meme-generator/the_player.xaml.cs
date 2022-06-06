@@ -33,7 +33,7 @@ namespace the_meme_generator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            //if (Playpause.Background == 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
