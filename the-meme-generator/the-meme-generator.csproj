@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="img_217916.png" />
+    <None Remove="Next-Track.png" />
     <None Remove="szrot.png" />
   </ItemGroup>
 
@@ -28,7 +30,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="img_217916.png" />
+    <Resource Include="Next-Track.png" />
     <Resource Include="szrot.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
 
 </Project>
