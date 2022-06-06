@@ -6,7 +6,16 @@
     <RootNamespace>the_meme_generator</RootNamespace>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>szrot.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="szrot.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="szrot.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
@@ -16,6 +25,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="szrot.png" />
   </ItemGroup>
 
 </Project>

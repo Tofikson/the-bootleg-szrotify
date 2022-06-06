@@ -24,5 +24,13 @@ namespace the_meme_generator
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            the_player player = new the_player();
+            player.Show();
+
+            Close();
+        }
     }
 }
