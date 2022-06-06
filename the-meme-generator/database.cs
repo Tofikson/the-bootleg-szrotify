@@ -21,7 +21,7 @@ namespace the_meme_generator
         {
             var szrotifyDb = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(szrotifyDb);
-            DbPath = System.IO.Path.Join(path, "szrotifyDb.db");
+            DbPath = System.IO.Path.Join(path, "bazaDoSzrotify\\szrotifyDb.db");
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
@@ -34,22 +34,23 @@ namespace the_meme_generator
 
     public class users
     {
-        public int id_user { get; set; }
+        public int ID { get; set; }
         public string login { get; set; }
         public string haslo { get; set; }
+        public ICollection<playlista> playlista { get; set; }
     }
     public class playlista
     {
-        public int id_playlisty { get; set; }
-        public int id_user { get; set; }
+        public int ID { get; set; }
+        public users users { get; set; }
         public string nazwa_playlisty { get; set; }
-        public int id_utworu { get; set; }
+        public utwory utwor { get; set; }
     }
     public class utwory
     {
-        public int id_utworu { get; set; }
-        public int id_wykonawcy { get; set; }
-        public int id_albumu { get; set; }
+        public int ID { get; set; }
+        public wykonawcy wykonawcy { get; set; }
+        public albumy albumy { get; set; }  
         public string tytul { get; set; }
         public string czas_utworu { get; set; }
         public DateTime data_dodania { get; set; }
@@ -57,16 +58,18 @@ namespace the_meme_generator
     }
     public class wykonawcy
     {
-        public int id_wykonawcy { get; set; }
+        public int ID { get; set; }
         public string wykonawca { get; set; }
         public DateTime rozpoczecie_kariery { get; set; }
         public int wydanych_albumow { get; set; }
+        public ICollection<utwory> utwory { get; set; }
     }
     public class albumy
     {
-        public int id_albumu { get; set; }
+        public int ID { get; set; }
         public string album { get; set; }
         public DateTime data_wydania { get; set; }
         public int liczba_utworow { get; set; }
+        public ICollection<utwory> utwory { get; set; }
     }
 }
