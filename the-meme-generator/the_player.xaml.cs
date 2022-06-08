@@ -18,12 +18,6 @@ namespace the_meme_generator
     /// Logika interakcji dla klasy the_player.xaml
     /// </summary>
     /// 
-
-
-    //TODO
-    // tak, player bedzie grał, ale jakis losowy dźwięk i wyjebie error że jeszcze nie dostał uploada ten utwór xD
-    //TODO
-
     public partial class the_player : Window
     {
         public the_player()
@@ -31,17 +25,22 @@ namespace the_meme_generator
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) // play/pause
         {
             //if (Playpause.Background == 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e) // right skip
         {
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e) // left skip/ replay
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e) // speaker
         {
 
         }

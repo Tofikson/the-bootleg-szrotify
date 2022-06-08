@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="img_217916.png" />
     <None Remove="Next-Track.png" />
+    <None Remove="Speaker_Icon.png" />
     <None Remove="szrot.png" />
   </ItemGroup>
 
@@ -32,6 +33,7 @@
   <ItemGroup>
     <Resource Include="img_217916.png" />
     <Resource Include="Next-Track.png" />
+    <Resource Include="Speaker_Icon.png" />
     <Resource Include="szrot.png" />
   </ItemGroup>
 

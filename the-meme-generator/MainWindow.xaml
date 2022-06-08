@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:the_meme_generator"
         mc:Ignorable="d"
-        Title="Szrofity" Height="612" Width="444">
+        Title="Szrofity" Height="612" Width="444" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
