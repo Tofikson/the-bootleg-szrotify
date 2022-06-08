@@ -22,15 +22,16 @@ namespace the_meme_generator
     /// Logika interakcji dla klasy the_player.xaml
     /// </summary>
     /// 
-    public partial class the_player : Window
+    public partial class the_player : Window, INotifyPropertyChanged
     {
         private MediaPlayer mediaplayer = new MediaPlayer();
         public string obecnyUtwor;
 
+
         public the_player()
         {
             InitializeComponent();
-
+            DataContext = this;
         }
         void timerTick(object sender, EventArgs e)
         {
@@ -48,7 +49,7 @@ namespace the_meme_generator
             }
 
         }
-
+        
         private void Button_Play(object sender, RoutedEventArgs e) // play
         {
             mediaplayer.Play();
@@ -82,10 +83,49 @@ namespace the_meme_generator
 
         private void Button_Rewind(object sender, RoutedEventArgs e)
         {
-            //if(speaker.)
-            //{
 
-            //}
+        }
+
+        private double _volume;
+        private bool mouseCaptured = false;
+
+        public double Volume
+        {
+            get { return _volume; }
+            set
+            {
+                _volume = value;
+                OnPropertyChanged("Volume");
+            }
+        }
+
+        private new void MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed && mouseCaptured)
+            {
+                var x = e.GetPosition(volumeBar).X;
+                var ratio = x / volumeBar.ActualWidth;
+                Volume = ratio * volumeBar.Maximum;
+            }
+        }
+
+        private new void MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            mouseCaptured = true;
+            var x = e.GetPosition(volumeBar).X;
+            var ratio = x / volumeBar.ActualWidth;
+            Volume = ratio * volumeBar.Maximum;
+        }
+        private new void MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            mouseCaptured = false;
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

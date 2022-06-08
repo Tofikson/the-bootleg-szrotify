@@ -20,6 +20,9 @@ namespace the_meme_generator
     /// </summary>
     public partial class MainWindow : Window
     {
+        public users selectedUser { get; set; }
+        public string Login { get; set; }
+        public List<users> pUSSR { get; set; } = Listy.GetUsers();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,10 +30,63 @@ namespace the_meme_generator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            the_player player = new the_player();
-            player.Show();
+           if(selectedUser.login != null) // TU NULL WYSKAKIWAŁ
+            { 
+           selectedUser.login = Login;
+            foreach (var user in pUSSR)
+            {
+                if(user.login == selectedUser.login)
+                {
+                    the_player player = new the_player();
+                    player.Show();
+                    Close();
+                }
+            }
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            /*using (var db = new DatabaseContext()) 
+            {
+                //var spawdzany = db.Users.Find();
 
-            Close();
+            foreach(var user in pUSSR)
+                {
+                   
+                } 
+                if (logowanie.Text == Login)
+                    {
+                        the_player player = new the_player();
+                        player.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Twoój stary");
+                    }
+            }*/
+            
         }
     }
 }
