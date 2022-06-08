@@ -19,17 +19,17 @@
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" Source="/szrot.png"/>
         <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="296,45,39,227" IsSynchronizedWithCurrentItem="True"/>
-        <Button Name="Playpause" HorizontalAlignment="Center" Margin="0,612,0,0" Width="100" Click="Button_Click" ClickMode="Press" RenderTransformOrigin="0.5,0.5" Height="100" VerticalAlignment="Top" Cursor="Hand">
+        <Button Name="Play" HorizontalAlignment="Left" Margin="420,614,0,0" Width="100" Click="Button_Play" ClickMode="Press" RenderTransformOrigin="0.5,0.5" Height="100" VerticalAlignment="Top" Cursor="Hand">
             <Button.Background>
                 <ImageBrush ImageSource="/img_217916.png"/>
             </Button.Background>
         </Button>
-        <Button Margin="0,644,376,0" Click="Button_Click_1" ClickMode="Press" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Top" Cursor="Hand">
+        <Button Margin="0,644,376,0" Click="Button_Next" ClickMode="Press" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Top" Cursor="Hand">
             <Button.Background>
                 <ImageBrush ImageSource="/Next-Track.png"/>
             </Button.Background>
         </Button>
-        <Button Margin="376,644,0,0" ClickMode="Press" RenderTransformOrigin="0.5,0.5" Click="Button_Click_2" HorizontalAlignment="Left" Height="50"  Width="50" VerticalAlignment="Top" Cursor="Hand">
+        <Button Margin="355,644,0,0" ClickMode="Press" RenderTransformOrigin="0.5,0.5" Click="Button_Rewind" HorizontalAlignment="Left" Height="50"  Width="50" VerticalAlignment="Top" Cursor="Hand">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -43,16 +43,23 @@
             </Button.Background>
         </Button>
         <ProgressBar Height="10" Margin="30,575,30,0" VerticalAlignment="Top"/>
-        <Label Content="0:00" HorizontalAlignment="Right" Margin="0,590,30,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Right" FontWeight="Bold" Foreground="White"/>
-        <Label Content="0:00" HorizontalAlignment="Left" Margin="30,590
-               ,0,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Right" FontWeight="Bold" Foreground="White"/>
-        <Slider HorizontalAlignment="Left" Margin="776,656,0,0" VerticalAlignment="Top" Width="168" Height="18" Foreground="Red" Grid.RowSpan="2" Cursor="Hand"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="731,645,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Button_Click_3" Grid.RowSpan="2" Cursor="Hand">
+        <Label Name="totalTime" Content="0:00" HorizontalAlignment="Right" Margin="0,590,30,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Right" FontWeight="Bold" Foreground="White"/>
+        <Label Name="currentTime" Content="0:00" HorizontalAlignment="Left" Margin="30,590,0,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Right" FontWeight="Bold" Foreground="White"/>
+        <Slider HorizontalAlignment="Left" Margin="776,656,0,0" VerticalAlignment="Top" Width="168" Height="18" Foreground="Red" Grid.RowSpan="2" Cursor="Hand" Value="100"/>
+        <Image Source="/Speaker_Icon.png" Name="speaker" HorizontalAlignment="Left" Margin="731,645,0,0" VerticalAlignment="Top" Width="40" Height="40" Grid.RowSpan="2"/>
+
+        <Label Content="100" HorizontalAlignment="Left" Margin="945,651,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" FontWeight="Normal" Foreground="White" Height="27" Width="40" Grid.RowSpan="2"/>
+        <Button x:Name="pause" HorizontalAlignment="Left" Margin="520,638,0,0" Width="53" Click="Button_Stop" ClickMode="Press" RenderTransformOrigin="0.5,0.5" Height="54" VerticalAlignment="Top" Cursor="Hand">
             <Button.Background>
-                <ImageBrush ImageSource="/Speaker_Icon.png"/>
+                <ImageBrush ImageSource="/stop.png"/>
             </Button.Background>
         </Button>
-        <Label Content="100" HorizontalAlignment="Left" Margin="945,651,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" FontWeight="Normal" Foreground="White" Height="27" Width="40" Grid.RowSpan="2"/>
+        <Button Content="Wybierz utwór" HorizontalAlignment="Left" Margin="38,186,0,0" VerticalAlignment="Top" Width="217" Height="49" FontSize="20" FontWeight="Bold" Click="Button_Choose"/>
+        <Label Content="Twójstary" Name="title" HorizontalAlignment="Left" Margin="30,536,0,0" VerticalAlignment="Top" Width="549" Height="34" FontSize="18" FontWeight="Bold" Foreground="White">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
 
     </Grid>
 </Window>
