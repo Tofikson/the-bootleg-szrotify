@@ -22,6 +22,9 @@ namespace the_meme_generator
     {
         public users selectedUser { get; set; }
         public string Login { get; set; }
+        public string Haslo { get; set; }
+        public int hasloid { get; set; }
+        public int loginid { get; set; }
         public List<users> pUSSR { get; set; } = Listy.GetUsers();
         public MainWindow()
         {
@@ -30,63 +33,36 @@ namespace the_meme_generator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           if(selectedUser.login != null) // TU NULL WYSKAKIWAŁ
-            { 
-           selectedUser.login = Login;
-            foreach (var user in pUSSR)
+            if (Login != null && Haslo != null)
             {
-                if(user.login == selectedUser.login)
+                foreach (var user in pUSSR)
                 {
-                    the_player player = new the_player();
-                    player.Show();
-                    Close();
+                    if (user.haslo == Haslo)
+                        hasloid = user.ID;
                 }
-            }
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            /*using (var db = new DatabaseContext()) 
-            {
-                //var spawdzany = db.Users.Find();
-
-            foreach(var user in pUSSR)
+                foreach (var user in pUSSR)
                 {
-                   
-                } 
-                if (logowanie.Text == Login)
+                    if (user.login == Login)
+                        loginid = user.ID;
+                }
+                if (loginid != 0 && hasloid != 0)
+                {
+                    if (loginid == hasloid)
                     {
                         the_player player = new the_player();
                         player.Show();
                         Close();
                     }
-                    else
-                    {
-                        Console.WriteLine("Twoój stary");
-                    }
-            }*/
-            
+                }
+                else
+                {
+                    MessageBox.Show("Niepoprawny login bądź hasło, spróbuj ponownie");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Proszę wypełnić puste pola");
+            }
         }
     }
 }

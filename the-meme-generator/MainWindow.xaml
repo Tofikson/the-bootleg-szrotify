@@ -16,7 +16,7 @@
                 <GradientStop Color="#FF05BD19" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <PasswordBox HorizontalAlignment="Center" Margin="0,346,0,0" VerticalAlignment="Top" Width="342" Height="35" FontSize="19" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <TextBox Name="haslowanie" Text="{Binding Path=Haslo}" HorizontalAlignment="Center" Margin="0,346,0,0" VerticalAlignment="Top" Width="342" Height="35" FontSize="19" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
         <TextBox Name="logowanie" HorizontalAlignment="Center" Margin="0,236,0,0" TextWrapping="NoWrap" Text="{Binding Path=Login}" VerticalAlignment="Top" Width="342" Height="35" FontSize="18" TextAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
         <Button Content="Zaloguj się" HorizontalAlignment="Center" Margin="0,437,0,0" VerticalAlignment="Top" Height="53" Width="160" Click="Button_Click" FontSize="22" Cursor="Hand"/>
         <TextBlock HorizontalAlignment="Left" Margin="51,180,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="159" Height="51" FontSize="36" FontFamily="Comic Sans MS" FontWeight="Bold" Visibility="Visible">
