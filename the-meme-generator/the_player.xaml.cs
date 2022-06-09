@@ -18,20 +18,20 @@ using System.Collections.ObjectModel;
 
 namespace the_meme_generator
 {
-    /// <summary>
-    /// Logika interakcji dla klasy the_player.xaml
-    /// </summary>
-    /// 
     public partial class the_player : Window, INotifyPropertyChanged
     {
         private MediaPlayer mediaplayer = new MediaPlayer();
         public string obecnyUtwor;
 
+        public List<playlista> Playlistas { get; set; } = GetPlaylistas();
 
         public the_player()
         {
             InitializeComponent();
             DataContext = this;
+            //IDeezNuts = IDeez;
+            //Playlistas = GetPlaylistas(IDeezNuts);
+            
         }
         void timerTick(object sender, EventArgs e)
         {
@@ -59,7 +59,7 @@ namespace the_meme_generator
         {
             mediaplayer.Pause();
         }
-        private void Button_Choose(object sender, RoutedEventArgs e) // right skip
+        private void Button_Choose(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*";
@@ -126,6 +126,37 @@ namespace the_meme_generator
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+       
+        
+        public static List<playlista> GetPlaylistas()
+        { 
+            
+            var list = new List<playlista>();
+            using (var db = new DatabaseContext())
+            {
+                foreach (var playlistUS in db.Playlista)
+                {
+                        foreach (var UtwoR in db.Utwory)
+                        {
+                            if (UtwoR.ID == playlistUS.utwor.ID)
+                            {
+                                playlistUS.utwor.tytul = UtwoR.tytul;
+                                playlistUS.utwor.czas_utworu = UtwoR.czas_utworu;
+                                playlistUS.utwor.data_dodania = UtwoR.data_dodania;
+
+                            }
+
+                        }
+                    
+                     
+                        list.Add(playlistUS); 
+                   
+                   
+                    
+                }
+                return list;
+            }
         }
     }
 }
