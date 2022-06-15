@@ -20,6 +20,7 @@ namespace the_meme_generator
 {
     public partial class the_player : Window, INotifyPropertyChanged
     {
+        public playlista SelectedPlaylista{ get; set; }
         private MediaPlayer mediaplayer = new MediaPlayer();
         public string obecnyUtwor;
 
@@ -29,8 +30,6 @@ namespace the_meme_generator
         {
             InitializeComponent();
             DataContext = this;
-            //IDeezNuts = IDeez;
-            //Playlistas = GetPlaylistas(IDeezNuts);
             
         }
         void timerTick(object sender, EventArgs e)
@@ -50,6 +49,7 @@ namespace the_meme_generator
 
         }
         
+      
         private void Button_Play(object sender, RoutedEventArgs e) // play
         {
             mediaplayer.Play();
@@ -144,19 +144,59 @@ namespace the_meme_generator
                                 playlistUS.utwor.tytul = UtwoR.tytul;
                                 playlistUS.utwor.czas_utworu = UtwoR.czas_utworu;
                                 playlistUS.utwor.data_dodania = UtwoR.data_dodania;
-
+                            foreach (var WyK in db.Wykonawcy)
+                            {
+                                if (WyK.ID == playlistUS.utwor.wykonawcy.ID)
+                                {
+                                   
+                                    playlistUS.utwor.wykonawcy.wykonawca = WyK.wykonawca;
+                                }
                             }
-
                         }
-                    
-                     
-                        list.Add(playlistUS); 
-                   
-                   
-                    
+                        }
+                        list.Add(playlistUS);   
                 }
                 return list;
             }
+        }
+
+        private void dodaj(object sender, RoutedEventArgs e)
+        {
+            if (SelectedPlaylista != null)
+            {
+                Window1 window = new Window1(SelectedPlaylista, this);
+                window.Show();
+            }
+            else
+            {
+                Window1 window = new Window1(null, this);
+                window.Show();
+            }
+        }
+
+        private void odswiez(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void usun(object sender, RoutedEventArgs e)
+        {
+            using (var db = new DatabaseContext())
+            {
+                var SP = db.Playlista.Find(SelectedPlaylista.ID);
+                if (SP != null && SelectedPlaylista.ID > 0)
+                {
+                    var Pl = db.Playlista.Find(SelectedPlaylista.ID);
+                    db.Playlista.Remove(Pl);
+                    db.SaveChanges();
+                }
+            }
+        }
+        public void Refresh()
+        {
+            categoryDataGrid.ItemsSource = null;
+            Playlistas = GetPlaylistas();
+            categoryDataGrid.ItemsSource = Playlistas;
         }
     }
 }

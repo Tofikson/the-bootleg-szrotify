@@ -21,10 +21,10 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" Source="/szrot.png"/>
-        <DataGrid Name="categoryDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Playlistas, Mode=TwoWay}" Margin="296,45,39,227" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+        <DataGrid Name="categoryDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Playlistas, Mode=TwoWay}" SelectedItem="{Binding SelectedPlaylista, Mode=TwoWay}" Margin="296,45,39,227" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="nazwaPlaylisty" Binding="{Binding nazwa_playlisty}" Header="Nazwa Playlisty"/>
-               
+                <DataGridTextColumn x:Name="wykonawca" Binding="{Binding utwor.wykonawcy.wykonawca}" Header="Wykonawca"/>
                 <DataGridTextColumn x:Name="name" Binding="{Binding utwor.tytul}" Header="Tytuł" Width="200"/>
                 <DataGridTextColumn x:Name="czas" Binding="{Binding utwor.czas_utworu}" Header="Czas" Width="60"/>
                 <DataGridTextColumn x:Name="dataDodania" Binding="{Binding utwor.data_dodania}" Header="Data Dodania" Width="120"/>
@@ -67,12 +67,15 @@
                 <ImageBrush ImageSource="/stop.png"/>
             </Button.Background>
         </Button>
-        <Button Content="Wybierz utwór" HorizontalAlignment="Left" Margin="38,186,0,0" VerticalAlignment="Top" Width="217" Height="49" FontSize="20" FontWeight="Bold" Click="Button_Choose"/>
+        <Button Content="Wybierz utwór lokalny" HorizontalAlignment="Left" Margin="38,186,0,0" VerticalAlignment="Top" Width="217" Height="49" FontSize="20" FontWeight="Bold" Click="Button_Choose"/>
         <Label Content="Nie wybrano utworu" Name="title" HorizontalAlignment="Left" Margin="30,536,0,0" VerticalAlignment="Top" Width="549" Height="34" FontSize="18" FontWeight="Bold" Foreground="White">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="230,252,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.53,-2.102" Width="61" Height="68" FontWeight="Bold" Click="dodaj"/>
+        <Button Content="Odśwież" HorizontalAlignment="Left" Margin="230,325,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.53,-2.102" Width="61" Height="68" FontWeight="Bold" Click="odswiez"/>
+        <Button Content="Usuń" HorizontalAlignment="Left" Margin="230,398,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.53,-2.102" Width="61" Height="68" FontWeight="Bold" Click="usun"/>
 
     </Grid>
 </Window>
